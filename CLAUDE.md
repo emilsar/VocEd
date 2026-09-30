@@ -9,16 +9,24 @@ Companion textbook: [cvmath.club](https://cvmath.club/)
 
 ## Notebooks (Labs)
 
+Current labs are in `Labs/`.  They contain fill-in-the-blank puzzles (`___`), each with a
+textbook link (obooks.tech/imageprocessing) and click-to-open hints, followed by an
+`assert` check that prints ✅.
+
 | File | Topic |
 |---|---|
-| `01_exploratory_segmentation.ipynb` | Grayscale thresholding, Dice score |
-| `02_bayesian_optimisation.ipynb` | Auto-search for best thresholds, train/test split |
-| `03_image_processing.ipynb` | Denoising, morphological opening/closing |
-| `03v2_targeted_artifact_removal.ipynb` | Nucleus blemish removal via connected-component size filtering |
-| `04_pixel_classifiers.ipynb` | k-NN on RGB colour vectors |
-| `05_convolutions.ipynb` | Manual convolution, minimal PyTorch CNN |
-| `06_unet.ipynb` | Encoder-decoder U-Net with skip connections |
-| `07_nc_ratio_pipeline.ipynb` | End-to-end clinical N/C ratio evaluation |
+| `Labs/Lab1_exploratory_analysis.ipynb` | Purely exploratory: shapes, channels, transpose, overlays, class counts, true N/C ratio, BT.601 grayscale, per-class brightness histogram. Stops before thresholding. |
+| `Labs/Lab2_thresholding_denoising_evaluation.ipynb` | Two-threshold segmenter; accuracy trap, precision/recall, Dice, IoU (Appendix C); Gaussian/median denoising (Ch 2 §2.6); stratified train/test split and tuning `t_nucleus` on train only; N/C scatter on test. |
+
+**Answer keys** are in `Labs/Solutions/`, which is listed in `.gitignore` so they never reach
+the public repo.  They are generated, together with the student versions, from one script
+per lab where answers are written as `«answer»` (student build → `___`).  The scripts are in
+`Labs/Solutions/` too: `cd Labs/Solutions && python3 make_lab1.py ../Lab1_exploratory_analysis.ipynb Lab1_exploratory_analysis_solutions.ipynb`.  If you edit a lab
+by hand, edit its answer key the same way.
+
+The original series (01–07, 03v2), plus `Machine Learning Approaches.ipynb`,
+`feature_engineering.ipynb` and `project_3_outline.ipynb`, was moved to `Labs/Old_Labs/` on 2026-09-30.  Book
+Chapter 8 links to Old Labs 05 and 06 by path.
 
 ## Dataset
 
