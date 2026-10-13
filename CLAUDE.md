@@ -17,6 +17,19 @@ textbook link (obooks.tech/imageprocessing) and click-to-open hints, followed by
 |---|---|
 | `Labs/Lab1_exploratory_analysis.ipynb` | Purely exploratory: shapes, channels, transpose, overlays, class counts, true N/C ratio, BT.601 grayscale, per-class brightness histogram. Stops before thresholding. |
 | `Labs/Lab2_thresholding_denoising_evaluation.ipynb` | Two-threshold segmenter; accuracy trap, precision/recall, Dice, IoU (Appendix C); Gaussian/median denoising (Ch 2 §2.6); stratified train/test split and tuning `t_nucleus` on train only; N/C scatter on test. |
+| `Labs/Lab3_grid_search_bayesian_optimisation_pipeline.ipynb` | Train/validation/test (same 40 test images as Lab 2); 11×11 grid over both thresholds; Bayesian optimisation with `gp_minimize` (Appendix B); pipeline of image steps (blur, median, NLM, unsharp) and mask steps (opening/closing) as lists of functions; ablation with thresholds re-tuned per pipeline; 5-knob BO; final test once + N/C R². Light code puzzles, mostly 🤔 Think puzzles. Runs in ~3½ min locally. |
+
+**Think puzzles** (from Lab 3 on): a markdown question headed `### 🤔 Think n — …`, followed by
+an answer cell made with `nb.answer(...)` in `nbtools.py` — students see "✏️ Your answer", the
+key shows "✏️ Model answer".  Model answers quote numbers from an executed run of the key; if
+code changes, re-run the key with `nbclient` and re-check them.
+
+**Lab 3 results to remember** (key run, `random_state=0`): tuning both thresholds moves
+`t_background` from 0.85 to 1.00 (background is saturated white) and training Dice 0.734 → 0.781;
+every pipeline step changes validation Dice by < 0.004 and unsharp masking lowers it by ~0.03;
+5-knob BO picks σ ≈ 0.15 and radii 4/5, validation 0.812; test Dice: Lab 2 0.719, two thresholds
+0.749, five knobs 0.770 — N/C R² stays negative throughout.  NumPy trap: `gray_all` is float32,
+so `gray < 0.84` and `gray < np.float64(0.84)` can disagree on pixels exactly at the threshold.
 
 **Answer keys** are in `Labs/Solutions/`, which is listed in `.gitignore` so they never reach
 the public repo.  They are generated, together with the student versions, from one script

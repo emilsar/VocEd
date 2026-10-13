@@ -12,6 +12,7 @@ section of the textbook and come with hints.
 |---|---|---|---|
 | 1 | Exploratory Analysis | Loading the data, channels, displaying images and masks, class counts, N/C ratio, grayscale, brightness by class | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/emilsar/VocEd/blob/main/Labs/Lab1_exploratory_analysis.ipynb) |
 | 2 | Thresholding, Denoising & Evaluation | Two-threshold segmenter, accuracy vs Dice/IoU, Gaussian & median filters, stratified train/test split | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/emilsar/VocEd/blob/main/Labs/Lab2_thresholding_denoising_evaluation.ipynb) |
+| 3 | Grid Search, Bayesian Optimisation & a Pipeline | Train/validation/test, grid search vs Bayesian optimisation, a switchable pipeline of blur, median, NLM, unsharp masking and opening/closing, ablation | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/emilsar/VocEd/blob/main/Labs/Lab3_grid_search_bayesian_optimisation_pipeline.ipynb) |
 
 ### Earlier labs
 
